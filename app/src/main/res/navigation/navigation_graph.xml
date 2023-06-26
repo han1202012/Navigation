@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_a" >
         <action
             android:id="@+id/action_fragmentA_to_fragmentB"
-            app:destination="@id/fragmentB" />
+            app:destination="@id/fragmentB"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/fragmentB"
@@ -21,6 +23,8 @@
         tools:layout="@layout/fragment_b" >
         <action
             android:id="@+id/action_fragmentB_to_fragmentA"
-            app:destination="@id/fragmentA" />
+            app:destination="@id/fragmentA"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
 </navigation>
