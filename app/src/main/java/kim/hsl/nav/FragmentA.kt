@@ -7,67 +7,40 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.Navigation.findNavController
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+// 定义 Kotlin 常量
+private const val ARG_PARAM_NAME = "NAME"
+private const val ARG_PARAM_AGE = "AGE"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FragmentA.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FragmentA : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // 设置 Fragment 布局文件
         return inflater.inflate(R.layout.fragment_a, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FragmentA.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FragmentA().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val button = view.findViewById<Button>(R.id.button)
         button.setOnClickListener {
+            // 正常方式传递参数
+            var args: Bundle = Bundle().apply {
+                // 设置 Bundle 对象参数数据
+                this.putString(ARG_PARAM_NAME, "Tom")
+                this.putInt(ARG_PARAM_AGE, 18)
+            }
+
             // 获取 NavigationController
             val navController = Navigation.findNavController(it)
             // 按照 action_fragmentA_to_fragmentB 对应的 action 的导航路线走
-            navController.navigate(R.id.action_fragmentA_to_fragmentB)
+            navController.navigate(R.id.action_fragmentA_to_fragmentB, args)
         }
     }
 }

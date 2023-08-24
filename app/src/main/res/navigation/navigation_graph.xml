@@ -26,5 +26,16 @@
             app:destination="@id/fragmentA"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
+
+        <!-- 配置完毕后 菜单栏/Build/Make 编译一下,
+             自动生成 HomeFragmentArgs 代码, 之后调用该自动生成的类传参 -->
+        <argument
+            android:name="NAME"
+            app:argType="string"
+            android:defaultValue="Jerry"/>
+        <argument
+            android:name="AGE"
+            app:argType="integer"
+            android:defaultValue="12"/>
     </fragment>
 </navigation>
