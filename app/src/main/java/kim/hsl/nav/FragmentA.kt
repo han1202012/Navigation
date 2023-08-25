@@ -1,6 +1,7 @@
 package kim.hsl.nav
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,9 +14,18 @@ private const val ARG_PARAM_NAME = "NAME"
 private const val ARG_PARAM_AGE = "AGE"
 
 class FragmentA : Fragment() {
+    private var name: String? = null
+    private var age: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        arguments?.let {
+            name = it.getString(ARG_PARAM_NAME)
+            age = it.getInt(ARG_PARAM_AGE)
+        }
+
+        Log.i("TAG", "FragmentB 传递到 FragmentA 的参数为 name = $name , age = $age")
     }
 
     override fun onCreateView(

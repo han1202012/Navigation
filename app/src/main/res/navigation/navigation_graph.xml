@@ -28,7 +28,7 @@
             app:exitAnim="@anim/nav_default_exit_anim" />
 
         <!-- 配置完毕后 菜单栏/Build/Make 编译一下,
-             自动生成 HomeFragmentArgs 代码, 之后调用该自动生成的类传参 -->
+             自动生成 FragmentBArgs.java 代码, 之后调用该自动生成的类传参 -->
         <argument
             android:name="NAME"
             app:argType="string"
