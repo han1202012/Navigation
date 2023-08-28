@@ -14,5 +14,7 @@ class MainActivity : AppCompatActivity() {
         // 对应的就是 navController 实例变量
         val navController = findNavController(this, R.id.fragment)
         NavigationUI.setupActionBarWithNavController(this, navController)
+
+        //NavigationUI.setup
     }
 }
